@@ -5,9 +5,14 @@ on:
   ## Runs on pushes targeting the default branch
   push:
     branches: ["main"]
+    ## Only trigger on changes to the 'site' directory
+    paths:
+      - "site/**"
   ## TODO: just for test
   pull_request:
     branches: [ "main" ]
+    paths:
+      - "site/**"
 
 
   ## Allows you to run this workflow manually from the Actions tab

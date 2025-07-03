@@ -11,6 +11,11 @@ on:
 
   ## Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
+    inputs:
+      name:
+        description: 'Who to greet'
+        required: false
+        default: 'World'
 
 ## A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -26,7 +31,7 @@ jobs:
 
       ## Runs a single command using the runners shell
       - name: Run a one-line script
-        run: echo Hello, world!
+        run: echo Hello, ${{ github.event.inputs.name }}!
 
       ## Runs a set of commands using the runners shell
       - name: Run a multi-line script
